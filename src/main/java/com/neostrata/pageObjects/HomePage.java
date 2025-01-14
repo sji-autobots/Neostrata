@@ -1,10 +1,10 @@
-package com.resuable.pageObjects;
+package com.neostrata.pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.resuable.base.BaseClass;
+import com.neostrata.base.BaseClass;
 
 /**
  *	@author : Rashi Tiwari

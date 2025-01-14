@@ -1,12 +1,12 @@
-package com.resuable.base;
+package com.neostrata.base;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
-import com.resuable.actionDriver.Action;
-import com.resuable.pageObjects.HomePage;
-import com.resuable.utility.ExtentManager;
+import com.neostrata.actionDriver.Action;
+import com.neostrata.pageObjects.HomePage;
+import com.neostrata.utility.ExtentManager;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -33,8 +33,8 @@ import java.util.HashMap;
 import java.util.Properties;
 
 /**
- *	Author : Vaibhav Nagvekar
- *	Date : 24 May 2022
+ *	@author : Rashi Tiwari
+ *	@Date : 14 Jan 2024
  **/
 
 public class BaseClass {

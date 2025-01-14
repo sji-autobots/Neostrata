@@ -1,4 +1,4 @@
-package com.resuable.utility;
+package com.neostrata.utility;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -10,8 +10,8 @@ import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.aventstack.extentreports.reporter.configuration.ViewName;
 
 /**
- *	@author : Vaibhav Nagvekar
- *	@Date : 06 Feb 2022
+ *	@author : Rashi Tiwari
+ *	@Date : 14 Jan 2024
  **/
 
 public class ExtentManager {
