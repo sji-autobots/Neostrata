@@ -1,4 +1,4 @@
-package com.resuable.actionDriver;
+package com.neostrata.actionDriver;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -22,11 +22,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.resuable.base.BaseClass;
+import com.neostrata.base.BaseClass;
 
 /**
- *	@author : Vaibhav Nagvekar
- *	@Date : 06 Feb 2022
+ *	@author : Rashi Tiwari
+ *	@Date : 14 Jan 2024
  **/
 
 public class Action extends BaseClass {
