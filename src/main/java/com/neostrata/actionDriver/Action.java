@@ -13,6 +13,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -31,6 +32,12 @@ import com.neostrata.base.BaseClass;
 
 public class Action extends BaseClass {
 
+	/**
+	 * Scrolls the webpage until the specified WebElement is visible in the viewport.
+	 *
+	 * @param driver The WebDriver instance used to interact with the browser.
+	 * @param ele    The WebElement that needs to be scrolled into view.
+	 */
 	public static void scrollByVisibilityOfElement(WebDriver driver, WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ele);
@@ -753,6 +760,18 @@ public class Action extends BaseClass {
 				+ dateName + ".png";
 		return newImageString;
 	}
+	
+	public static boolean waitForUrlContains(String expectedResult, int timeoutInSeconds) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds))
+                .until(ExpectedConditions.urlContains(expectedResult));
+            System.out.println("URL contains the expected substring: " + expectedResult);
+            return true;
+        } catch (TimeoutException e) {
+            System.out.println("URL did not contain the expected substring within the timeout: " + expectedResult);
+            return false;
+        }
+    }
 
 	public String getCurrentTime() {
 		String currentDate = new SimpleDateFormat("yyyy-MM-dd-hhmmss").format(new Date());
