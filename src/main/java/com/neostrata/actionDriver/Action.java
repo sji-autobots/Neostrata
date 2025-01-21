@@ -12,6 +12,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -759,6 +760,18 @@ public class Action extends BaseClass {
 		return currentDate;
 	}
 
+	public static boolean waitForUrlContains(String expectedResult, int timeoutInSeconds) {
+        try {
+            new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds))
+                .until(ExpectedConditions.urlContains(expectedResult));
+            System.out.println("URL contains the expected substring: " + expectedResult);
+            return true;
+        } catch (TimeoutException e) {
+            System.out.println("URL did not contain the expected substring within the timeout: " + expectedResult);
+            return false;
+        }
+    }
+	
 	public static void explicitWaitForElementTobeclickable(WebElement element, long i) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(i));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -773,5 +786,25 @@ public class Action extends BaseClass {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+     * Waits until the URL contains the specified substring.
+     * 
+     * @param driver The WebDriver instance.
+     * @param urlFragment The part of the URL to wait for.
+     * @param timeoutInSeconds The timeout duration in seconds.
+     * @return true if the URL contains the substring within the timeout; false otherwise.
+     */
+    public static boolean waitForUrlToContain(WebDriver driver, String urlFragment, int timeoutInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+            wait.until(ExpectedConditions.urlContains(urlFragment));
+            System.out.println("URL contains the specified fragment: " + urlFragment);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Timeout: URL did not contain the specified fragment within " + timeoutInSeconds + " seconds: " + urlFragment);
+            return false;
+        }
+    }
 	
 }

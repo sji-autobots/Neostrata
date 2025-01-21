@@ -4,12 +4,11 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
+import com.neostrata.pageObjects.FooterPage;
 import com.neostrata.actionDriver.Action;
 import com.neostrata.pageObjects.HomePage;
 import com.neostrata.utility.ExtentManager;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +37,8 @@ import java.util.Properties;
  **/
 
 public class BaseClass {
-
+	
+	public static FooterPage footer;
 	public static Properties prop;
 	public static WebDriver driver;
 	public static ExtentTest test;
@@ -56,7 +56,6 @@ public class BaseClass {
 
 	public static HomePage home;
 	
-
 	@BeforeSuite
 	public void loadConfig() throws IOException {
 		ExtentManager.setExtent();
@@ -70,7 +69,7 @@ public class BaseClass {
 			e.printStackTrace();
 		}
 	}
-
+	
 	public static void launchApplication() {
 		String browserName = prop.getProperty("browser");
 		runOn = prop.getProperty("runOn");
@@ -141,6 +140,7 @@ public class BaseClass {
 			}
 		}
 		 home = new HomePage();
+		 footer = new FooterPage();
 		driver.manage().window().maximize();
 		Action.implicitWait(driver, 10);
 	}
