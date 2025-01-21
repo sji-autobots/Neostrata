@@ -11,8 +11,8 @@ import com.neostrata.pageObjects.HomePage;
 import com.neostrata.utility.DataProviders;
 
 /**
- *	@author : Rashi Tiwari
- *	@Date : 14 Jan 2024
+ * @author : Rashi Tiwari
+ * @Date : 21 Jan 2024
  **/
 
 public class HomePageTest extends BaseClass {
@@ -27,67 +27,113 @@ public class HomePageTest extends BaseClass {
 		driver.quit();
 	}
 
-	@Test(priority=1, dataProvider = "logo", dataProviderClass = HomeProvider.class)
-	public void HEADER_verifyLogoTest(String testcase,String execution) {
+	@Test(priority = 1, dataProvider = "logo", dataProviderClass = HomeProvider.class)
+	public void HOME_verifyLogoTest(String testcase, String execution) {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
 			home.closePopup();
 			home.checkLogo();
-		}
-		else {
+		} else {
 			throw new SkipException("Test skipped : " + testcase);
 		}
 	}
 
-	@Test(priority=2, dataProvider = "firstbanner", dataProviderClass = HomeProvider.class)
-	public void HEADER_verifyFirstBanner(String testcase,String execution, String expUrl) {
+	@Test(priority = 2, dataProvider = "firstbanner", dataProviderClass = HomeProvider.class)
+	public void HOME_verifyFirstBanner(String testcase, String execution, String expUrl) {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
 			home.closePopup();
-			home.firstBannerVerification(expUrl);;
-		}
-		else {
+			home.firstBannerVerification(expUrl);
+			;
+		} else {
 			throw new SkipException("Test skipped : " + testcase);
 		}
 	}
 
-	@Test(priority=3, dataProvider = "trending", dataProviderClass = HomeProvider.class)
-	public void HEADER_verifyTrendingSection(String testcase,String execution,String expText, String productCount ) {
+	@Test(priority = 3, dataProvider = "trending", dataProviderClass = HomeProvider.class)
+	public void HOME_verifyTrendingSection(String testcase, String execution, String expText, String productCount) {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
 			home.closePopup();
-			home.shopTrending(expText,productCount);
-		}
-		else {
+			home.shopTrending(expText, productCount);
+		} else {
 			throw new SkipException("Test skipped : " + testcase);
 		}
 	}
-	
-	@Test(priority=4, dataProvider = "introduction", dataProviderClass = HomeProvider.class)
-	public void HEADER_verifyIntroductionSection(String testcase,String execution,String expUrl) {
+
+	@Test(priority = 4, dataProvider = "introduction", dataProviderClass = HomeProvider.class)
+	public void HOME_verifyIntroductionSection(String testcase, String execution, String expUrl) {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
 			home.closePopup();
 			home.introducingBanner(expUrl);
-		}
-		else {
+		} else {
 			throw new SkipException("Test skipped : " + testcase);
 		}
 	}
-	
-	@Test(priority=5, dataProvider = "levelUp", dataProviderClass = HomeProvider.class)
-	public void HEADER_verifyLevelUpSection(String testcase,String execution,String expText,String index, String expUrl) throws Exception {
+
+	@Test(priority = 5, dataProvider = "levelUp", dataProviderClass = HomeProvider.class)
+	public void HOME_verifyLevelUpSection(String testcase, String execution, String expText, String index,
+			String expUrl) throws Exception {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
 			home.closePopup();
-			home.levelUp(expText,index, expUrl);
+			home.levelUp(expText, index, expUrl);
+		} else {
+			throw new SkipException("Test skipped : " + testcase);
 		}
-		else {
+	}
+
+	@Test(priority = 6, dataProvider = "winter", dataProviderClass = HomeProvider.class)
+	public void HOME_verifyLevelUpSection(String testcase, String execution, String expUrl) throws Exception {
+		test = test.createNode(testcase);
+		if (execution.equalsIgnoreCase(defaultFlag)) {
+			selectEnv(runOn);
+			home.closePopup();
+			home.saveForWinterBanner(expUrl);
+		} else {
+			throw new SkipException("Test skipped : " + testcase);
+		}
+	}
+
+	@Test(priority = 7, dataProvider = "awardWinner", dataProviderClass = HomeProvider.class)
+	public void HOME_verifyAwardWinner(String testcase, String execution, String expText, String index, String expUrl)
+			throws Exception {
+		test = test.createNode(testcase);
+		if (execution.equalsIgnoreCase(defaultFlag)) {
+			selectEnv(runOn);
+			home.closePopup();
+			home.awardWinner(expText, index, expUrl);
+		} else {
+			throw new SkipException("Test skipped : " + testcase);
+		}
+	}
+
+	@Test(priority = 8, dataProvider = "specialOffer", dataProviderClass = HomeProvider.class)
+	public void HOME_verifySpecialOffer(String testcase, String execution, String expText) throws Exception {
+		test = test.createNode(testcase);
+		if (execution.equalsIgnoreCase(defaultFlag)) {
+			selectEnv(runOn);
+			home.closePopup();
+			home.specialOffer(expText);
+		} else {
+			throw new SkipException("Test skipped : " + testcase);
+		}
+	}
+
+	@Test(priority = 9, dataProvider = "glow", dataProviderClass = HomeProvider.class)
+	public void HOME_verifyGlow(String testcase, String execution, String expText) throws Exception {
+		test = test.createNode(testcase);
+		if (execution.equalsIgnoreCase(defaultFlag)) {
+			selectEnv(runOn);
+			home.closePopup();
+			home.glow(expText);
+		} else {
 			throw new SkipException("Test skipped : " + testcase);
 		}
 	}

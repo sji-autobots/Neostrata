@@ -5,7 +5,7 @@ import com.neostrata.utility.DataProviders;
 
 /**
  *	@author : Rashi Tiwari
- *	@Date : 14 Jan 2024
+ *	@Date : 21 Jan 2024
  **/
 
 public class HomeProvider {
@@ -38,5 +38,26 @@ public class HomeProvider {
     public Object[][] levelUp() throws IOException, IOException {
         return provider.getData(dataPath, "levelUp");
     }
+    
+    @org.testng.annotations.DataProvider(name = "winter")
+    public Object[][] winter() throws IOException, IOException {
+        return provider.getData(dataPath, "winter");
+    }
+    
+    @org.testng.annotations.DataProvider(name = "awardWinner")
+    public Object[][] awardWinner() throws IOException, IOException {
+        return provider.getData(dataPath, "awardWinner");
+    }
+    
+    @org.testng.annotations.DataProvider(name = "specialOffer")
+    public Object[][] specialOffer() throws IOException, IOException {
+        return provider.getData(dataPath, "specialOffer");
+    }
+    
+    @org.testng.annotations.DataProvider(name = "glow")
+    public Object[][] glow() throws IOException, IOException {
+        return provider.getData(dataPath, "glow");
+    }
 }
+
 
