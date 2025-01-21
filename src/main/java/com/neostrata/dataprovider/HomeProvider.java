@@ -14,9 +14,29 @@ public class HomeProvider {
 
     DataProviders provider = new DataProviders();
 
-    @org.testng.annotations.DataProvider(name = "banner")
-    public Object[][] banner() throws IOException, IOException {
-        return provider.getData(dataPath, "banner");
+    @org.testng.annotations.DataProvider(name = "logo")
+    public Object[][] logo() throws IOException, IOException {
+        return provider.getData(dataPath, "logo");
     }
 
+    @org.testng.annotations.DataProvider(name = "firstbanner")
+    public Object[][] firstbanner() throws IOException, IOException {
+        return provider.getData(dataPath, "firstbanner");
+    }
+    
+    @org.testng.annotations.DataProvider(name = "trending")
+    public Object[][] trending() throws IOException, IOException {
+        return provider.getData(dataPath, "trending");
+    }
+    
+    @org.testng.annotations.DataProvider(name = "introduction")
+    public Object[][] introduction() throws IOException, IOException {
+        return provider.getData(dataPath, "introduction");
+    }
+    
+    @org.testng.annotations.DataProvider(name = "levelUp")
+    public Object[][] levelUp() throws IOException, IOException {
+        return provider.getData(dataPath, "levelUp");
+    }
 }
+

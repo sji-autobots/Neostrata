@@ -12,8 +12,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -32,12 +32,6 @@ import com.neostrata.base.BaseClass;
 
 public class Action extends BaseClass {
 
-	/**
-	 * Scrolls the webpage until the specified WebElement is visible in the viewport.
-	 *
-	 * @param driver The WebDriver instance used to interact with the browser.
-	 * @param ele    The WebElement that needs to be scrolled into view.
-	 */
 	public static void scrollByVisibilityOfElement(WebDriver driver, WebElement ele) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].scrollIntoView();", ele);
@@ -760,7 +754,12 @@ public class Action extends BaseClass {
 				+ dateName + ".png";
 		return newImageString;
 	}
-	
+
+	public String getCurrentTime() {
+		String currentDate = new SimpleDateFormat("yyyy-MM-dd-hhmmss").format(new Date());
+		return currentDate;
+	}
+
 	public static boolean waitForUrlContains(String expectedResult, int timeoutInSeconds) {
         try {
             new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds))
@@ -772,12 +771,7 @@ public class Action extends BaseClass {
             return false;
         }
     }
-
-	public String getCurrentTime() {
-		String currentDate = new SimpleDateFormat("yyyy-MM-dd-hhmmss").format(new Date());
-		return currentDate;
-	}
-
+	
 	public static void explicitWaitForElementTobeclickable(WebElement element, long i) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(i));
 		wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -792,5 +786,25 @@ public class Action extends BaseClass {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+     * Waits until the URL contains the specified substring.
+     * 
+     * @param driver The WebDriver instance.
+     * @param urlFragment The part of the URL to wait for.
+     * @param timeoutInSeconds The timeout duration in seconds.
+     * @return true if the URL contains the substring within the timeout; false otherwise.
+     */
+    public static boolean waitForUrlToContain(WebDriver driver, String urlFragment, int timeoutInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+            wait.until(ExpectedConditions.urlContains(urlFragment));
+            System.out.println("URL contains the specified fragment: " + urlFragment);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Timeout: URL did not contain the specified fragment within " + timeoutInSeconds + " seconds: " + urlFragment);
+            return false;
+        }
+    }
 	
 }
