@@ -3,8 +3,10 @@ package com.neostrata.pageObjects;
 import java.util.List;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
@@ -68,6 +70,7 @@ public class HomePage extends BaseClass {
 	
 	public void closePopup() {
 		Action.waitFor(3);
+		
 		if(closePopup.isDisplayed()) {
 			closePopup.click();
 			closePopup.isDisplayed();
@@ -75,14 +78,20 @@ public class HomePage extends BaseClass {
 		else {
 			extentInfoLog("Popup displayed : ", closePopup.isDisplayed());
 		}
-		
+	}
+	
+	public void closeLight() {
+	    Action.waitFor(5);
+	    Actions actions = new Actions(driver);
+	    actions.sendKeys(Keys.ESCAPE).perform();
+	    extentInfoLog("Popup displayed after ESC: ", actions);
 	}
 
 	public void checkLogo() {
 		extentInfoLog("'Logo is displayed : ", logo.isDisplayed());
 	}
 	
-	public void firstBannerVerification(String expUrl) {
+	public void firstBannerVerification(String expUrl) { 
 		boolean flag = firstBanner.isDisplayed();
 		if(flag==true) {
 			extentInfoLog("Clicking on 'Shop Now' button on first banner : ", "");
