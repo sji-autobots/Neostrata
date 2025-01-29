@@ -5,6 +5,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.neostrata.pageObjects.FooterPage;
+import com.neostrata.pageObjects.HeaderPage;
 import com.neostrata.actionDriver.Action;
 import com.neostrata.pageObjects.HomePage;
 import com.neostrata.utility.ExtentManager;
@@ -55,6 +56,7 @@ public class BaseClass {
 	static String format = dtf.format(now);
 
 	public static HomePage home;
+	public static HeaderPage header;
 	
 	@BeforeSuite
 	public void loadConfig() throws IOException {
@@ -141,6 +143,7 @@ public class BaseClass {
 		}
 		 home = new HomePage();
 		 footer = new FooterPage();
+		 header =  new HeaderPage();
 		driver.manage().window().maximize();
 		Action.implicitWait(driver, 10);
 	}
