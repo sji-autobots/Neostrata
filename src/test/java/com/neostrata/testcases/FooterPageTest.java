@@ -13,7 +13,7 @@ import com.neostrata.base.BaseClass;
  *	@Date : 15 Jan 2025
  **/
 
-public class FooterPageTest extends BaseClass {
+public class FooterPageTest extends BaseClass { 
 	
 	@BeforeMethod
 	public void setup() throws InterruptedException {
@@ -25,6 +25,7 @@ public class FooterPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            home.closeLight();
             home.closePopup();
             footer.checkLinks(column, value, expectedResult);
         } else {
@@ -37,6 +38,7 @@ public class FooterPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            home.closeLight();
             home.closePopup();
             footer.checkSocialMediaLinks(testcase, value, expectedResult);
         } else {
@@ -49,6 +51,7 @@ public class FooterPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            home.closeLight();
             home.closePopup();
             footer.checkNewFooterLinks(testcase, value, expectedResult);
         } else {
@@ -61,6 +64,7 @@ public class FooterPageTest extends BaseClass {
 	       test = test.createNode(testcase);
 	       if (execution.equalsIgnoreCase(defaultFlag)) {
 	           selectEnv(runOn);
+	           home.closeLight();
 	           home.closePopup();
 	           footer.customizeCookieSettingAccept(checkBox);
 	       } else {

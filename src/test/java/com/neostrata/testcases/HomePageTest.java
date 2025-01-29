@@ -15,7 +15,7 @@ import com.neostrata.utility.DataProviders;
  *	@Date : 14 Jan 2024
  **/
 
-public class HomePageTest extends BaseClass {
+public class HomePageTest extends BaseClass { 
 
 	@BeforeMethod
 	public void setup() throws InterruptedException {
@@ -32,6 +32,7 @@ public class HomePageTest extends BaseClass {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
+			home.closeLight();
 			home.closePopup();
 			home.checkLogo();
 		}
@@ -45,8 +46,9 @@ public class HomePageTest extends BaseClass {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
+			home.closeLight();
 			home.closePopup();
-			home.firstBannerVerification(expUrl);;
+			home.firstBannerVerification(expUrl);
 		}
 		else {
 			throw new SkipException("Test skipped : " + testcase);
@@ -58,6 +60,7 @@ public class HomePageTest extends BaseClass {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
+			home.closeLight();
 			home.closePopup();
 			home.shopTrending(expText,productCount);
 		}
@@ -71,6 +74,7 @@ public class HomePageTest extends BaseClass {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
+			home.closeLight();
 			home.closePopup();
 			home.introducingBanner(expUrl);
 		}
@@ -84,6 +88,7 @@ public class HomePageTest extends BaseClass {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
+			home.closeLight();
 			home.closePopup();
 			home.levelUp(expText,index, expUrl);
 		}
