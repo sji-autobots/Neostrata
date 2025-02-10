@@ -29,4 +29,14 @@ String dataPath = "src\\test\\resources\\TestData\\HeaderPageTestData.xlsx";
     public Object[][] discoverProducts() throws IOException, IOException {
         return provider.getData(dataPath, "discoverProducts");
     }
+	
+	@org.testng.annotations.DataProvider(name = "skincaretips")
+    public Object[][] skincaretips() throws IOException, IOException {
+        return provider.getData(dataPath, "skincaretips");
+    }
+	
+	@org.testng.annotations.DataProvider(name = "offer")
+    public Object[][] offer() throws IOException, IOException {
+        return provider.getData(dataPath, "offer");
+    }
 }

@@ -772,6 +772,26 @@ public class Action extends BaseClass {
         }
     }
 	
+	 /**
+     * Waits until the URL contains the specified substring.
+     * 
+     * @param driver The WebDriver instance.
+     * @param urlFragment The part of the URL to wait for.
+     * @param timeoutInSeconds The timeout duration in seconds.
+     * @return true if the URL contains the substring within the timeout; false otherwise.
+     */
+    public static boolean waitForUrlToContainSubString(WebDriver driver, String urlFragment, int timeoutInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+            wait.until(ExpectedConditions.urlContains(urlFragment));
+            System.out.println("URL contains the specified fragment: " + urlFragment);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Timeout: URL did not contain the specified fragment within " + timeoutInSeconds + " seconds: " + urlFragment);
+            return false;
+        }
+    }
+	
 	public static void explicitWaitForElementTobeclickable(WebElement element, long i) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(i));
 		wait.until(ExpectedConditions.elementToBeClickable(element));

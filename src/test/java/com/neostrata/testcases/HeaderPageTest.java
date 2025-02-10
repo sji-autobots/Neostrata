@@ -8,7 +8,10 @@ import org.testng.annotations.Test;
 import com.neostrata.base.BaseClass;
 import com.neostrata.dataprovider.HeaderProvider;
 
-
+/**
+ *	@author : Rashi Tiwari
+ *	@Date : 10 Feb 2025
+ **/
 public class HeaderPageTest extends BaseClass {
 	@BeforeMethod
     public void setup() throws InterruptedException {
@@ -25,6 +28,7 @@ public class HeaderPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            home.closeLight();
             home.closePopup();
             header.checkShopSkincareDropDownAction( testcase,  category,  subMenu,expectedResult);
         } else {
@@ -49,6 +53,7 @@ public class HeaderPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            home.closeLight();
             home.closePopup();
             header.discoverDropDownOption(testcase,subMenu,expectedResult);
         } else {
@@ -61,6 +66,7 @@ public class HeaderPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            home.closeLight();
             home.closePopup();
             header.discoverDropDownOption(testcase,subMenu,expectedResult);
         } else {
@@ -68,4 +74,29 @@ public class HeaderPageTest extends BaseClass {
         }
     }
     
+    @Test(priority = 5, dataProvider = "skincaretips", dataProviderClass = HeaderProvider.class)
+    public void HEADER_verifySkincareTipsProducts(String testcase, String execution, String subMenu,String expectedResult) throws InterruptedException {
+        test = test.createNode(testcase);
+        if (execution.equalsIgnoreCase(defaultFlag)) {
+            selectEnv(runOn);
+            home.closeLight();
+            home.closePopup();
+            header.skincareTipsDropDownProducts(testcase, subMenu, expectedResult);
+        } else {
+            throw new SkipException("Test skipped : " + testcase);
+        }
+    }
+    
+    @Test(priority = 6, dataProvider = "offer", dataProviderClass = HeaderProvider.class)
+    public void HEADER_verifyOffer(String testcase, String execution,String expectedResult) throws InterruptedException {
+        test = test.createNode(testcase);
+        if (execution.equalsIgnoreCase(defaultFlag)) {
+            selectEnv(runOn);
+            home.closeLight();
+            home.closePopup();
+            header.offerValidation(testcase, expectedResult);
+        } else {
+            throw new SkipException("Test skipped : " + testcase);
+        }
+    }
 }

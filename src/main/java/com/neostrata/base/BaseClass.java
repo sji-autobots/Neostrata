@@ -56,7 +56,10 @@ public class BaseClass {
 	static String format = dtf.format(now);
 
 	public static HomePage home;
+
 	public static HeaderPage header;
+
+
 	
 	@BeforeSuite
 	public void loadConfig() throws IOException {
@@ -215,7 +218,4 @@ public class BaseClass {
 		}
 		driver.get(baseURI);
 	}
-
-
-
 }
