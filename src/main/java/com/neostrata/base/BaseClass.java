@@ -5,9 +5,9 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.neostrata.pageObjects.FooterPage;
+import com.neostrata.pageObjects.HeaderPage;
 import com.neostrata.actionDriver.Action;
 import com.neostrata.pageObjects.HomePage;
-import com.neostrata.pageObjects.LearnPage;
 import com.neostrata.utility.ExtentManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
@@ -56,7 +56,10 @@ public class BaseClass {
 	static String format = dtf.format(now);
 
 	public static HomePage home;
-	public static LearnPage learn;
+
+	public static HeaderPage header;
+
+
 	
 	@BeforeSuite
 	public void loadConfig() throws IOException {
@@ -142,8 +145,8 @@ public class BaseClass {
 			}
 		}
 		 home = new HomePage();
-		 learn= new LearnPage();
 		 footer = new FooterPage();
+		 header =  new HeaderPage();
 		driver.manage().window().maximize();
 		Action.implicitWait(driver, 10);
 	}
@@ -215,7 +218,4 @@ public class BaseClass {
 		}
 		driver.get(baseURI);
 	}
-
-
-
 }
