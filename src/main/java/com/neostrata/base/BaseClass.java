@@ -8,6 +8,7 @@ import com.neostrata.pageObjects.FooterPage;
 import com.neostrata.pageObjects.HeaderPage;
 import com.neostrata.actionDriver.Action;
 import com.neostrata.pageObjects.HomePage;
+import com.neostrata.pageObjects.LearnPage;
 import com.neostrata.utility.ExtentManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
@@ -40,6 +41,7 @@ import java.util.Properties;
 public class BaseClass {
 	
 	public static FooterPage footer;
+	public static LearnPage learn;
 	public static Properties prop;
 	public static WebDriver driver;
 	public static ExtentTest test;
@@ -146,6 +148,7 @@ public class BaseClass {
 		}
 		 home = new HomePage();
 		 footer = new FooterPage();
+		 learn = new LearnPage();
 		 header =  new HeaderPage();
 		driver.manage().window().maximize();
 		Action.implicitWait(driver, 10);
