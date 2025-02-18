@@ -16,18 +16,18 @@ public class LearnSkincareProvider {
 	
 	DataProviders provider = new DataProviders();
 	
-	@org.testng.annotations.DataProvider(name = "BreadText")
-    public Object[][] BreadText() throws IOException, IOException {
-        return provider.getData(dataPath, "BreadText");
+	@org.testng.annotations.DataProvider(name = "breadText")
+    public Object[][] breadText() throws IOException, IOException {
+        return provider.getData(dataPath, "breadText");
     }
 	
-	@org.testng.annotations.DataProvider(name = "Header")
-    public Object[][] Header() throws IOException, IOException {
-        return provider.getData(dataPath, "Header");
+	@org.testng.annotations.DataProvider(name = "header")
+    public Object[][] header() throws IOException, IOException {
+        return provider.getData(dataPath, "header");
     }
 	
-	@org.testng.annotations.DataProvider(name = "ViewBtn")
-    public Object[][] ViewBtn() throws IOException, IOException {
-        return provider.getData(dataPath, "ViewBtn");
+	@org.testng.annotations.DataProvider(name = "viewBtn")
+    public Object[][] viewBtn() throws IOException, IOException {
+        return provider.getData(dataPath, "viewBtn");
     }
 }

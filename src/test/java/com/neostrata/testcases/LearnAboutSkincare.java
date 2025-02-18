@@ -26,7 +26,7 @@ public class LearnAboutSkincare extends BaseClass {
 		driver.quit();
 	}
 	
-	@Test(priority=1, dataProvider = "BreadText", dataProviderClass = LearnSkincareProvider.class)
+	@Test(priority=1, dataProvider = "breadText", dataProviderClass = LearnSkincareProvider.class)
 	public void Learn_VerifyBanner(String testcase,String execution, String expText) throws InterruptedException {
 		test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
@@ -42,7 +42,7 @@ public class LearnAboutSkincare extends BaseClass {
         }
 	}
 	
-	@Test(priority = 2, dataProvider = "Header", dataProviderClass = LearnSkincareProvider.class)
+	@Test(priority = 2, dataProvider = "header", dataProviderClass = LearnSkincareProvider.class)
     public void Learn_VerifyCards(String testcase, String execution, String category, String expectedResult) throws InterruptedException {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
@@ -57,7 +57,7 @@ public class LearnAboutSkincare extends BaseClass {
         }
     }
 	
-	@Test(priority = 3, dataProvider = "ViewBtn", dataProviderClass = LearnSkincareProvider.class)
+	@Test(priority = 3, dataProvider = "viewBtn", dataProviderClass = LearnSkincareProvider.class)
     public void Learn_VerifyBtn(String testcase, String execution, String expText) throws InterruptedException {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {

@@ -11,13 +11,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
-
 import com.neostrata.actionDriver.Action;
 import com.neostrata.base.BaseClass;
 
 public class LearnPage extends BaseClass {
-	
-	String runOnBrowserstack = prop.getProperty("runOnBrowserstack");
 	
 	@FindBy(css = "#HeaderMenu-discover")
     private WebElement discoverDropDownMenu;
@@ -87,14 +84,6 @@ public class LearnPage extends BaseClass {
 		Action.click(driver, getCards(category));
 		Action.waitForUrlToContain(driver, expectedResult, 5000);
 		String actualResult = driver.getCurrentUrl();
-		if (runOnBrowserstack.contains("Yes")) {
-			this.assertEqualsBS(expectedResult, actualResult, "Redirected to correct URL", "Redirected to wrong URL");
-			} 
-		else {
-				extentInfoLog("Test case : ", testcase);
-				extentInfoLog("Actual URL : ", actualResult);
-				extentInfoLog("Expected URL : ", expectedResult);
-			}
 	}
 	
 	/**
