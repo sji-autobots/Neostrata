@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
+import com.neostrata.pageObjects.CommitmentsPage;
 import com.neostrata.pageObjects.FooterPage;
 import com.neostrata.pageObjects.HeaderPage;
 import com.neostrata.actionDriver.Action;
@@ -42,6 +43,7 @@ public class BaseClass {
 	
 	public static FooterPage footer;
 	public static LearnPage learn;
+	public static  CommitmentsPage commitment;
 	public static Properties prop;
 	public static WebDriver driver;
 	public static ExtentTest test;
@@ -149,6 +151,7 @@ public class BaseClass {
 		 home = new HomePage();
 		 footer = new FooterPage();
 		 learn = new LearnPage();
+		 commitment = new CommitmentsPage();
 		 header =  new HeaderPage();
 		driver.manage().window().maximize();
 		Action.implicitWait(driver, 10);
