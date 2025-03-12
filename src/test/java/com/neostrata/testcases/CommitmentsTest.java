@@ -131,7 +131,7 @@ public class CommitmentsTest extends BaseClass{
             home.closePopup(); 
             commitment.navigatetocommitment();
             int breadcrumbCountInt = Integer.parseInt(breadcrumbcount);
-            commitment.verifyPageLayout(38, breadcrumbCountInt);  // Assuming 3 images as per your requirement
+            commitment.verifyPageLayout(38, breadcrumbCountInt);
         } else {
             throw new SkipException("Test skipped : " + testcase);
         }
