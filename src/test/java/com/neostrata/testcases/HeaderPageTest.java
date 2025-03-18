@@ -17,7 +17,7 @@ public class HeaderPageTest extends BaseClass {
     public void setup() throws InterruptedException {
         launchApplication();
     }
-
+ 
     @AfterMethod
     public void tearDown() {
         driver.quit();
@@ -37,7 +37,7 @@ public class HeaderPageTest extends BaseClass {
     }
     
     @Test(priority = 2, dataProvider = "bestSeller", dataProviderClass = HeaderProvider.class)
-    public void HEADER_verifyBestSeller(String testcase, String execution, String subMenu,String expectedResult) throws InterruptedException {
+    public void HEADER_verifyBestSeller(String testcase, String execution, String subMenu,String expectedResult) throws Exception {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);

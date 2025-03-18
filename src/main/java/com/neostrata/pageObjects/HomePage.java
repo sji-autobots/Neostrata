@@ -69,19 +69,18 @@ public class HomePage extends BaseClass {
     }
 	
 	public void closePopup() {
-		Action.waitFor(3);
-		
+		Action.waitFor(3);	
 		if(closePopup.isDisplayed()) {
 			closePopup.click();
 			closePopup.isDisplayed();
 		}
 		else {
 			extentInfoLog("Popup displayed : ", closePopup.isDisplayed());
-		}
+		} 
 	}
 	
 	public void closeLight() {
-	    Action.waitFor(5);
+	    Action.waitFor(3000);
 	    Actions actions = new Actions(driver);
 	    actions.sendKeys(Keys.ESCAPE).perform();
 	    extentInfoLog("Popup displayed after ESC: ", actions);

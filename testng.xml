@@ -8,10 +8,11 @@
 
 	<test name="NEOSTRATA : TEST-CASES">
 		<classes>
-			<class name="com.neostrata.testcases.HomePageTest" />
+			 <class name="com.neostrata.testcases.HomePageTest" />
 			<class name="com.neostrata.testcases.FooterPageTest" />
 			<class name="com.neostrata.testcases.LearnAboutSkincare" />
-			<class name="com.neostrata.testcases.HeaderPageTest" />  
+			<class name="com.neostrata.testcases.HeaderPageTest" />   
+			<class name="com.neostrata.testcases.PlpTest" /> 
 		</classes>
 	</test>
 </suite>

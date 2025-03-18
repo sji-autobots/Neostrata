@@ -10,7 +10,7 @@ import com.neostrata.actionDriver.Action;
 import com.neostrata.base.BaseClass;
 
 /**
- *	@author : Rashi Tiwari
+ *	@author : Rashi 
  *	@Date : 10 Feb 2025
  **/
 public class HeaderPage extends BaseClass{
@@ -94,14 +94,15 @@ public class HeaderPage extends BaseClass{
 	 * @param subMenu      The specific submenu to be selected from the dropdown.
 	 * @param expectedResult The expected substring to be present in the URL after the action.
 	 * @return void
+	 * @throws Exception 
 	 * */
-	public void bestSellerDropDownAction(String testcase, String subMenu,String expectedResult) {
+	public void bestSellerDropDownAction(String testcase, String subMenu,String expectedResult) throws Exception {
 		Action.explicitWait(bestSellerDropDownMenu, 15);
 		Action.click(driver,bestSellerDropDownMenu);
 		Action.explicitWait(getBestSellerSubMenus(subMenu), 15);
-		Action.click(driver, getBestSellerSubMenus(subMenu));
+		Action.JSClick(driver, getBestSellerSubMenus(subMenu));
 		String actualResult = driver.getCurrentUrl();
-		Action.waitForUrlToContain(driver, expectedResult, 4);
+		Action.waitForUrlToContain(driver, expectedResult, 4); 
 		extentInfoLog("Test case : ", testcase);
 		extentInfoLog("Actual URL : ", actualResult);
 		extentInfoLog("Expected URL : ", expectedResult);
