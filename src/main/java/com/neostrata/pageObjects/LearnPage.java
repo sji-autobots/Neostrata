@@ -42,7 +42,7 @@ public class LearnPage extends BaseClass {
 	
 	/**
 	 * Navigates to the "Learn About Skincare" page by clicking on the corresponding link in the dropdown menu. It clicks the dropdown menu
-	 * to reveal options and then clicks on the "Our Story" page link. It also logs the action performed.
+	 * to reveal options and then clicks on the "Learn About Skincare" page link. It also logs the action performed.
 	 * @return void
 	 * @timeComplexity O(1) assuming helper methods execute in constant time.
 	 **/
@@ -62,6 +62,7 @@ public class LearnPage extends BaseClass {
 	 **/
 	public boolean verifyBannerText(String expectedText) {
         String actualText = LearnTxt.getText();
+        Assert.assertEquals(actualText, expectedText);
         return actualText.equals(expectedText);
     }
 	
@@ -82,8 +83,9 @@ public class LearnPage extends BaseClass {
 		Thread.sleep(2000);
 		Action.explicitWait(getCards(category), 15);
 		Action.click(driver, getCards(category));
-		Action.waitForUrlToContain(driver, expectedResult, 5000);
+		Action.waitForUrlToContain(driver, expectedResult, 15);
 		String actualResult = driver.getCurrentUrl();
+		Assert.assertEquals(actualResult, expectedResult);
 	}
 	
 	/**

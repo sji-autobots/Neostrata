@@ -47,34 +47,37 @@ public class FooterPage extends BaseClass{
 	}
 	
 	/**
-	 * Verifies that clicking a specific footer link redirects to the expected URL.
-	 *
-	 * @param column         The column identifier to locate the footer link.
-	 * @param value          The value associated with the column to identify the specific link.
-	 * @param expectedResult The expected URL after the link is clicked.
-	 * @throws InterruptedException If the thread sleep is interrupted.
+	 * Checks that clicking a footer link navigates to the expected URL.
+	 * @param column        The column name used to fetch the specific footer link.
+	 * @param value         The specific footer link to be tested.
+	 * @param expectedResult The expected URL to be matched against the actual URL after the link is clicked.
+	 * @return void
+	 * @timeComplexity O(1) as the operations executed do not depend on input size.
 	 */
 	public void checkLinks(String column, String value, String expectedResult) throws InterruptedException {
-		getfooterlinks(column,value);
-		Action.waitFor(2000);
-		getfooterlinks(column,value).click();
-		extentInfoLog("Clicked on the link : ", getfooterlinks(column,value).getText());
+	    Action.explicitWait(getfooterlinks(column, value), 15);
+	    Action.waitFor(3000);
+	    getfooterlinks(column, value).click();
+	    extentInfoLog("Clicked on link : ", getfooterlinks(column, value).getText());
+	    String actualResult = driver.getCurrentUrl();
+	    Assert.assertEquals(actualResult, expectedResult);
 	}
 	
 	/**
-	 * Verifies that clicking a social media link redirects to a URL containing the expected result.
-	 *
+	 * Verifies that clicking a social media link navigates to the expected URL.
 	 * @param testcase       The identifier for the test case.
 	 * @param value          The specific social media link to be tested.
-	 * @param expectedResult The expected substring to be present in the URL after redirection.
-	 * @throws InterruptedException If the thread sleep is interrupted.
+	 * @param expectedResult  The expected URL to be matched against the actual URL after the link is clicked.
+	 * @return void
 	 */
 	public void checkSocialMediaLinks(String testcase, String value, String expectedResult) throws InterruptedException {
-			Action.scrollByVisibilityOfElement(driver, getSocialMedialinks(value));
-			Action.click(driver, getSocialMedialinks(value));	
-			Action.waitForUrlContains(expectedResult, 20);
-			extentInfoLog("URL was verified to contain : ", expectedResult);
-		}
+	    Action.explicitWait(getSocialMedialinks(value), 15);
+	    Action.waitFor(3000);
+	    getSocialMedialinks(value).click();
+	    extentInfoLog("Clicked on link: ", getSocialMedialinks(value).getText());
+	    String actualResult = driver.getCurrentUrl();
+	    Assert.assertEquals(actualResult, expectedResult);
+	}
 	
 	/**
 	 * Verifies that clicking a new footer link redirects to a URL containing the expected result.
@@ -89,6 +92,8 @@ public class FooterPage extends BaseClass{
 		extentInfoLog("Clicking on the link : ",expectedResult );
 		getNewfooterlinks(value).click();
 		Action.waitForUrlContains(expectedResult, 3);
+		String actualResult = driver.getCurrentUrl();
+		Assert.assertEquals(actualResult, expectedResult);
 		extentInfoLog("URL was verified to contain : ", expectedResult);
 	}
 	
