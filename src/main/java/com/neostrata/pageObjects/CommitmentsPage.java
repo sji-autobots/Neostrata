@@ -1,22 +1,19 @@
 package com.neostrata.pageObjects;
 
 import java.util.List;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+import com.neostrata.actionDriver.Action;
+import com.neostrata.base.BaseClass;
 
 /**
  * @Author: Shaurya Jaiswal
  * @Date: 24 Jan 2025
  * 
  **/
-
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
-
-import com.neostrata.actionDriver.Action;
-import com.neostrata.base.BaseClass;
 
 public class CommitmentsPage extends BaseClass{
 	
@@ -46,6 +43,10 @@ public class CommitmentsPage extends BaseClass{
 	
 	@FindBy(css = "#ImageWithText--template--18178515009794__image_with_text_EEGLMd > div > h2")
     private WebElement banner;
+	
+	private By imageLocator = By.tagName("img");
+	
+	private By breadcrumbLocator = By.xpath("//*[@id=\"MainContent\"]/nav/ol/li[2]/a/span");
 	
 	public CommitmentsPage() {
         PageFactory.initElements(driver, this);
@@ -149,17 +150,16 @@ public class CommitmentsPage extends BaseClass{
 	 * @timeComplexity O(n) where n is the number of <img> and breadcrumb elements, as it requires iterating through the found elements.
 	 */
 	public void verifyPageLayout(int expectedImageCount, int expectedBreadcrumbCount) {
-	    List<WebElement> images = driver.findElements(By.tagName("img"));
+	    List<WebElement> images = driver.findElements(imageLocator);
 	    printAndAssert(images.size(), expectedImageCount);
 	    extentInfoLog("Images verified : ", images.size());
 	    boolean isBannerDisplayed = banner.isDisplayed();
 	    if (isBannerDisplayed) {
-	    	extentInfoLog("Banner is present.", isBannerDisplayed);
+	        extentInfoLog("Banner is present.", isBannerDisplayed);
+	    } else {
+	        extentInfoLog("Banner is not present.", isBannerDisplayed);
 	    }
-	    else {
-	    	extentInfoLog("Banner is not present.", isBannerDisplayed);
-	    }
-	    List<WebElement> breadcrumbs = driver.findElements(By.xpath("//*[@id=\"MainContent\"]/nav/ol/li[2]/a/span")); // Replace with actual locator
+	    List<WebElement> breadcrumbs = driver.findElements(breadcrumbLocator);
 	    printAndAssert(breadcrumbs.size(), expectedBreadcrumbCount);
 	    extentInfoLog("Breadcrumbs verified : ", breadcrumbs.size());
 	}

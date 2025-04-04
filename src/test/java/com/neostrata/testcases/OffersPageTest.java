@@ -41,8 +41,8 @@ public class OffersPageTest extends BaseClass{
         }
 	}
 	
-	@Test(priority=2, dataProvider = "bannerText", dataProviderClass = OffersProvider.class)
-	public void Learn_VerifyBannerText(String testcase, String execution, String category ,String expText) throws InterruptedException {
+	@Test(priority=2, dataProvider = "headText", dataProviderClass = OffersProvider.class)
+	public void Learn_VerifyOfferText(String testcase,String execution, String expText) throws InterruptedException {
 		test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
@@ -50,15 +50,15 @@ public class OffersPageTest extends BaseClass{
             home.closeLight();
             home.closePopup(); 
             offer.navigateToOffers();
-            offer.verifyBannerText(category, expText);
+            offer.verifyOfferText(expText);
         }
         else {
             throw new SkipException("Test skipped : " + testcase);
         }
 	}
 	
-	@Test(priority=3, dataProvider = "bannerOneButton", dataProviderClass = OffersProvider.class)
-	public void Learn_VerifyBannerOneBtn(String testcase,String execution, String expUrl) throws InterruptedException {
+	@Test(priority=3, dataProvider = "cardContent", dataProviderClass = OffersProvider.class)
+	public void Learn_VerifyOfferCards(String testcase,String execution, String uniqueId, String expUrl) throws InterruptedException {
 		test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
@@ -66,15 +66,15 @@ public class OffersPageTest extends BaseClass{
             home.closeLight();
             home.closePopup(); 
             offer.navigateToOffers();
-            offer.verifyBannerOneButton(expUrl);
+            offer.verifyOfferCards(uniqueId, expUrl);
         }
         else {
             throw new SkipException("Test skipped : " + testcase);
         }
 	}
 	
-	@Test(priority=4, dataProvider = "bannerTwoButton", dataProviderClass = OffersProvider.class)
-	public void Learn_VerifyBannerTwoBtn(String testcase,String execution, String expUrl) throws InterruptedException {
+	@Test(priority=4, dataProvider = "offerTerms", dataProviderClass = OffersProvider.class)
+	public void Learn_VerifyOfferTerms(String testcase,String execution, String expText) throws InterruptedException {
 		test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
@@ -82,87 +82,7 @@ public class OffersPageTest extends BaseClass{
             home.closeLight();
             home.closePopup(); 
             offer.navigateToOffers();
-            offer.verifyBannerTwoButton(expUrl);
-        }
-        else {
-            throw new SkipException("Test skipped : " + testcase);
-        }
-	}
-	
-	@Test(priority=5, dataProvider = "bannerThreeButton", dataProviderClass = OffersProvider.class)
-	public void Learn_VerifyBannerThreeBtn(String testcase,String execution, String expUrl) throws InterruptedException {
-		test = test.createNode(testcase);
-        if (execution.equalsIgnoreCase(defaultFlag)) {
-            selectEnv(runOn);
-            Action.waitFor(3000);
-            home.closeLight();
-            home.closePopup(); 
-            offer.navigateToOffers();
-            offer.verifyBannerThreeButton(expUrl);
-        }
-        else {
-            throw new SkipException("Test skipped : " + testcase);
-        }
-	}
-	
-	@Test(priority=6, dataProvider = "bannerFourButton", dataProviderClass = OffersProvider.class)
-	public void Learn_VerifyBannerFourBtn(String testcase,String execution, String expUrl) throws InterruptedException {
-		test = test.createNode(testcase);
-        if (execution.equalsIgnoreCase(defaultFlag)) {
-            selectEnv(runOn);
-            Action.waitFor(3000);
-            home.closeLight();
-            home.closePopup(); 
-            offer.navigateToOffers();
-            offer.verifyBannerFourButton(expUrl);
-        }
-        else {
-            throw new SkipException("Test skipped : " + testcase);
-        }
-	}
-	
-	@Test(priority=7, dataProvider = "bannerFiveButton", dataProviderClass = OffersProvider.class)
-	public void Learn_VerifyBannerFiveBtn(String testcase,String execution) throws InterruptedException {
-		test = test.createNode(testcase);
-        if (execution.equalsIgnoreCase(defaultFlag)) {
-            selectEnv(runOn);
-            Action.waitFor(3000);
-            home.closeLight();
-            home.closePopup(); 
-            offer.navigateToOffers();
-            offer.verifyBannerFiveButton();
-        }
-        else {
-            throw new SkipException("Test skipped : " + testcase);
-        }
-	}
-	
-	@Test(priority=8, dataProvider = "bannerSixButton", dataProviderClass = OffersProvider.class)
-	public void Learn_VerifyBannerSixBtn(String testcase,String execution, String expUrl) throws InterruptedException {
-		test = test.createNode(testcase);
-        if (execution.equalsIgnoreCase(defaultFlag)) {
-            selectEnv(runOn);
-            Action.waitFor(3000);
-            home.closeLight();
-            home.closePopup(); 
-            offer.navigateToOffers();
-            offer.verifyBannerSixButton(expUrl);
-        }
-        else {
-            throw new SkipException("Test skipped : " + testcase);
-        }
-	}
-	
-	@Test(priority=9, dataProvider = "termsText", dataProviderClass = OffersProvider.class)
-	public void Learn_VerifyTermsText(String testcase,String execution) throws InterruptedException {
-		test = test.createNode(testcase);
-        if (execution.equalsIgnoreCase(defaultFlag)) {
-            selectEnv(runOn);
-            Action.waitFor(3000);
-            home.closeLight();
-            home.closePopup(); 
-            offer.navigateToOffers();
-            offer.verifyTermsText();
+            offer.verifyOfferTerms(expText);
         }
         else {
             throw new SkipException("Test skipped : " + testcase);

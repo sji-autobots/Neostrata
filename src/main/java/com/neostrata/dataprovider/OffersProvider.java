@@ -21,38 +21,18 @@ String dataPath = "src\\test\\resources\\TestData\\OffersData.xlsx";
         return provider.getData(dataPath, "breadText");
     }
 	
-	@org.testng.annotations.DataProvider(name = "bannerText")
-    public Object[][] bannerText() throws IOException, IOException {
-        return provider.getData(dataPath, "bannerText");
+	@org.testng.annotations.DataProvider(name = "headText")
+    public Object[][] headText() throws IOException, IOException {
+        return provider.getData(dataPath, "headText");
     }
 	
-	@org.testng.annotations.DataProvider(name = "bannerOneButton")
-    public Object[][] bannerOneButton() throws IOException, IOException {
-        return provider.getData(dataPath, "bannerOneButton");
+	@org.testng.annotations.DataProvider(name = "cardContent")
+    public Object[][] cardContent() throws IOException, IOException {
+        return provider.getData(dataPath, "cardContent");
     }
 	
-	@org.testng.annotations.DataProvider(name = "bannerTwoButton")
-    public Object[][] bannerTwoButton() throws IOException, IOException {
-        return provider.getData(dataPath, "bannerTwoButton");
-    }
-	
-	@org.testng.annotations.DataProvider(name = "bannerThreeButton")
-    public Object[][] bannerThreeButton() throws IOException, IOException {
-        return provider.getData(dataPath, "bannerThreeButton");
-    }
-	
-	@org.testng.annotations.DataProvider(name = "bannerFourButton")
-    public Object[][] bannerFourButton() throws IOException, IOException {
-        return provider.getData(dataPath, "bannerFourButton");
-    }
-	
-	@org.testng.annotations.DataProvider(name = "bannerFiveButton")
-    public Object[][] bannerFiveButton() throws IOException, IOException {
-        return provider.getData(dataPath, "bannerFiveButton");
-    }
-	
-	@org.testng.annotations.DataProvider(name = "bannerSixButton")
-    public Object[][] bannerSixButton() throws IOException, IOException {
-        return provider.getData(dataPath, "bannerSixButton");
+	@org.testng.annotations.DataProvider(name = "offerTerms")
+    public Object[][] offerTerms() throws IOException, IOException {
+        return provider.getData(dataPath, "offerTerms");
     }
 }
