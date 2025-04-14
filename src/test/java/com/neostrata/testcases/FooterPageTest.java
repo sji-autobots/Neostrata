@@ -6,6 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.neostrata.actionDriver.Action;
 import com.neostrata.base.BaseClass;
 
 /**
@@ -25,6 +26,7 @@ public class FooterPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            Action.waitFor(3000);
             home.closeLight();
             home.closePopup();
             footer.checkLinks(column, value, expectedResult);
@@ -38,6 +40,7 @@ public class FooterPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            Action.waitFor(3000);
             home.closeLight();
             home.closePopup();
             footer.checkSocialMediaLinks(testcase, value, expectedResult);
@@ -51,6 +54,7 @@ public class FooterPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            Action.waitFor(3000);
             home.closeLight();
             home.closePopup();
             footer.checkNewFooterLinks(testcase, value, expectedResult);
@@ -64,6 +68,7 @@ public class FooterPageTest extends BaseClass {
 	       test = test.createNode(testcase);
 	       if (execution.equalsIgnoreCase(defaultFlag)) {
 	           selectEnv(runOn);
+	           Action.waitFor(3000);
 	           home.closeLight();
 	           home.closePopup();
 	           footer.customizeCookieSettingAccept(checkBox);
