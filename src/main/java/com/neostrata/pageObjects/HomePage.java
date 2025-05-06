@@ -145,6 +145,7 @@ public class HomePage extends BaseClass {
 	    extentInfoLog("Product banner displayed: ", levelUpBannerProduct.isDisplayed());
 	    int indexInt= Integer.parseInt(index);
 	    	WebElement element=levelUpBannerProductLink.get(indexInt);
+	    	Action.waitFor(4000);
 	    	Action.JSClick(driver, element);
 	    	Action.waitForUrlToContain(driver, expUrl, 5);
 	    }

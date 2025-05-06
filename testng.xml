@@ -14,6 +14,7 @@
 			<class name="com.neostrata.testcases.HeaderPageTest" />
 			<class name="com.neostrata.testcases.CommitmentsTest" />
 			<class name="com.neostrata.testcases.OffersPageTest" />
+			<class name="com.neostrata.testcases.ShippingPageTest" />
 		</classes>
 	</test>
 </suite>
