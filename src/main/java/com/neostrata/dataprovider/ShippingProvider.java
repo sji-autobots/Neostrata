@@ -1,7 +1,6 @@
 package com.neostrata.dataprovider;
 
 import java.io.IOException;
-
 import com.neostrata.utility.DataProviders;
 
 /**
