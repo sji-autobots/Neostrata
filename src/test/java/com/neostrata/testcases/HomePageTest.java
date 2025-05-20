@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.neostrata.actionDriver.Action;
 import com.neostrata.base.BaseClass;
 import com.neostrata.dataprovider.HomeProvider;
 import com.neostrata.pageObjects.HomePage;
@@ -88,6 +89,7 @@ public class HomePageTest extends BaseClass {
 		test = test.createNode(testcase);
 		if (execution.equalsIgnoreCase(defaultFlag)) {
 			selectEnv(runOn);
+			Action.waitFor(2000);
 			home.closeLight();
 			home.closePopup();
 			home.levelUp(expText,index, expUrl);

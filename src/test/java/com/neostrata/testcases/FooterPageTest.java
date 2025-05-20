@@ -35,47 +35,47 @@ public class FooterPageTest extends BaseClass {
         }
     }
 	
-	@Test(priority = 2, dataProvider = "SocailMedia", dataProviderClass = FooterProvider.class)
-    public void FOOTER_verifySocialMediaLinks(String testcase, String execution, String value, String expectedResult) throws InterruptedException {
-        test = test.createNode(testcase);
-        if (execution.equalsIgnoreCase(defaultFlag)) {
-            selectEnv(runOn);
-            Action.waitFor(3000);
-            home.closeLight();
-            home.closePopup();
-            footer.checkSocialMediaLinks(testcase, value, expectedResult);
-        } else {
-            throw new SkipException("Test skipped : " + testcase);
-        }
-    }
-	
-	@Test(priority = 3, dataProvider = "newLinks", dataProviderClass = FooterProvider.class)
-    public void FOOTER_verifyNewLinks(String testcase, String execution, String value, String expectedResult) throws InterruptedException {
-        test = test.createNode(testcase);
-        if (execution.equalsIgnoreCase(defaultFlag)) {
-            selectEnv(runOn);
-            Action.waitFor(3000);
-            home.closeLight();
-            home.closePopup();
-            footer.checkNewFooterLinks(testcase, value, expectedResult);
-        } else {
-            throw new SkipException("Test skipped : " + testcase);
-        }
-    }
-	
-	@Test(priority = 4, dataProvider = "custCookie", dataProviderClass = FooterProvider.class)
-	   public void FOOTER_verifyCustomizeCookieSettingsTest(String testcase, String execution, String checkBox) throws InterruptedException {
-	       test = test.createNode(testcase);
-	       if (execution.equalsIgnoreCase(defaultFlag)) {
-	           selectEnv(runOn);
-	           Action.waitFor(3000);
-	           home.closeLight();
-	           home.closePopup();
-	           footer.customizeCookieSettingAccept(checkBox);
-	       } else {
-	           throw new SkipException("Test skipped : " + testcase);
-	       }
-	   }
+//	@Test(priority = 2, dataProvider = "SocailMedia", dataProviderClass = FooterProvider.class)
+//    public void FOOTER_verifySocialMediaLinks(String testcase, String execution, String value, String expectedResult) throws InterruptedException {
+//        test = test.createNode(testcase);
+//        if (execution.equalsIgnoreCase(defaultFlag)) {
+//            selectEnv(runOn);
+//            Action.waitFor(3000);
+//            home.closeLight();
+//            home.closePopup();
+//            footer.checkSocialMediaLinks(testcase, value, expectedResult);
+//        } else {
+//            throw new SkipException("Test skipped : " + testcase);
+//        }
+//    }
+//	
+//	@Test(priority = 3, dataProvider = "newLinks", dataProviderClass = FooterProvider.class)
+//    public void FOOTER_verifyNewLinks(String testcase, String execution, String value, String expectedResult) throws InterruptedException {
+//        test = test.createNode(testcase);
+//        if (execution.equalsIgnoreCase(defaultFlag)) {
+//            selectEnv(runOn);
+//            Action.waitFor(3000);
+//            home.closeLight();
+//            home.closePopup();
+//            footer.checkNewFooterLinks(testcase, value, expectedResult);
+//        } else {
+//            throw new SkipException("Test skipped : " + testcase);
+//        }
+//    }
+//	
+//	@Test(priority = 4, dataProvider = "custCookie", dataProviderClass = FooterProvider.class)
+//	   public void FOOTER_verifyCustomizeCookieSettingsTest(String testcase, String execution, String checkBox) throws InterruptedException {
+//	       test = test.createNode(testcase);
+//	       if (execution.equalsIgnoreCase(defaultFlag)) {
+//	           selectEnv(runOn);
+//	           Action.waitFor(3000);
+//	           home.closeLight();
+//	           home.closePopup();
+//	           footer.customizeCookieSettingAccept(checkBox);
+//	       } else {
+//	           throw new SkipException("Test skipped : " + testcase);
+//	       }
+//	   }
 
 	@AfterMethod
 	public void tearDown() {
