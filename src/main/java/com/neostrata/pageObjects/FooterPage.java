@@ -55,7 +55,7 @@ public class FooterPage extends BaseClass{
 	 * @timeComplexity O(1) as the operations executed do not depend on input size.
 	 */
 	public void checkLinks(String column, String value, String expectedResult) throws InterruptedException {
-		Action.waitFor(4000);
+		Action.waitFor(5000);
 	    Action.explicitWait(getfooterlinks(column, value), 15);
 	    getfooterlinks(column, value).click();
 	    extentInfoLog("Clicked on link : ", getfooterlinks(column, value).getText());

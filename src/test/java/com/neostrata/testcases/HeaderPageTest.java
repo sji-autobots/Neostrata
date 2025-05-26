@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.neostrata.actionDriver.Action;
 import com.neostrata.base.BaseClass;
 import com.neostrata.dataprovider.HeaderProvider;
 
@@ -28,6 +29,7 @@ public class HeaderPageTest extends BaseClass {
         test = test.createNode(testcase);
         if (execution.equalsIgnoreCase(defaultFlag)) {
             selectEnv(runOn);
+            Action.waitFor(4000);
             home.closeLight();
             home.closePopup();
             header.checkShopSkincareDropDownAction( testcase,  category,  subMenu,expectedResult);
