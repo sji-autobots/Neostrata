@@ -18,4 +18,14 @@ public class PlpProvider {
     public Object[][] category() throws IOException, IOException {
         return provider.getData(dataPath, "category");
     }
+    
+    @org.testng.annotations.DataProvider(name = "ingredients")
+    public Object[][] ingredients() throws IOException, IOException {
+        return provider.getData(dataPath, "ingredients");
+    }
+    
+    @org.testng.annotations.DataProvider(name = "pageLayout")
+    public Object[][] pageLayout() throws IOException, IOException {
+        return provider.getData(dataPath, "pageLayout");
+    }
 }

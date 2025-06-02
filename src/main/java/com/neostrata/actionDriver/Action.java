@@ -37,6 +37,11 @@ public class Action extends BaseClass {
 		js.executeScript("arguments[0].scrollIntoView();", ele);
 	}
 	
+	public static void JSClick(WebElement ele) {
+		JavascriptExecutor j = (JavascriptExecutor) driver;
+		j.executeScript("arguments[0].click();", ele);
+	}
+	
 	public static void scrollByPixels(WebDriver driver, int value) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,"+value+")");
