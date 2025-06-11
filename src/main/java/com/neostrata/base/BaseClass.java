@@ -5,11 +5,14 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.Markup;
 import com.neostrata.pageObjects.FooterPage;
+import com.neostrata.pageObjects.CommitmentsPage;
 import com.neostrata.pageObjects.HeaderPage;
 import com.neostrata.actionDriver.Action;
 import com.neostrata.pageObjects.HomePage;
 import com.neostrata.pageObjects.LearnPage;
 import com.neostrata.pageObjects.PlpPage;
+import com.neostrata.pageObjects.OffersPage;
+import com.neostrata.pageObjects.ShippingPage;
 import com.neostrata.utility.ExtentManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.JavascriptExecutor;
@@ -43,6 +46,9 @@ public class BaseClass {
 	
 	public static FooterPage footer;
 	public static LearnPage learn;
+	public static  CommitmentsPage commitment;
+	public static OffersPage offer;
+	public static ShippingPage shipping;
 	public static Properties prop;
 	public static WebDriver driver;
 	public static ExtentTest test;
@@ -146,6 +152,9 @@ public class BaseClass {
 			}
 		}
 		 home = new HomePage();
+		 offer = new OffersPage();
+		 shipping = new ShippingPage();
+		 commitment = new CommitmentsPage();
 		 footer = new FooterPage();
 		 learn = new LearnPage();
 		 header =  new HeaderPage();
