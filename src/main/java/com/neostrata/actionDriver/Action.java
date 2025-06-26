@@ -37,6 +37,11 @@ public class Action extends BaseClass {
 		js.executeScript("arguments[0].scrollIntoView();", ele);
 	}
 	
+	public static void JSClick(WebElement ele) {
+		JavascriptExecutor j = (JavascriptExecutor) driver;
+		j.executeScript("arguments[0].click();", ele);
+	}
+	
 	public static void scrollByPixels(WebDriver driver, int value) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,"+value+")");
@@ -826,5 +831,25 @@ public class Action extends BaseClass {
             return false;
         }
     }
-	
+
+    /**
+     * Selects an option from a dropdown using keyboard actions.
+     * This method clicks on the dropdown to activate it, simulates pressing 
+     * the ARROW_DOWN key to navigate through the options, and selects the option 
+     * by simulating the ENTER key press.
+     *
+     * @param dropdown WebElement representing the dropdown element
+     * @throws InterruptedException if the thread is interrupted during sleep
+     */
+    public static void selectDropdownOptionWithKeyboard(WebElement ele, int numberOfArrowDowns ) throws InterruptedException {
+        Actions actions = new Actions(driver);
+        for (int i = 0; i < numberOfArrowDowns; i++) {
+            actions.sendKeys(Keys.ARROW_DOWN).perform();
+            Thread.sleep(200); // Adding a small delay between each key press
+        }
+
+        // Press Enter to select the option
+        actions.sendKeys(Keys.ENTER).perform();
+        Thread.sleep(5000); 
+    }
 }

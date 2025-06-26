@@ -10,6 +10,7 @@ import com.neostrata.pageObjects.HeaderPage;
 import com.neostrata.actionDriver.Action;
 import com.neostrata.pageObjects.HomePage;
 import com.neostrata.pageObjects.LearnPage;
+import com.neostrata.pageObjects.PlpPage;
 import com.neostrata.pageObjects.OffersPage;
 import com.neostrata.pageObjects.ShippingPage;
 import com.neostrata.utility.ExtentManager;
@@ -64,10 +65,8 @@ public class BaseClass {
 	static String format = dtf.format(now);
 
 	public static HomePage home;
-
 	public static HeaderPage header;
-
-
+	public static PlpPage plp;
 	
 	@BeforeSuite
 	public void loadConfig() throws IOException {
@@ -159,6 +158,8 @@ public class BaseClass {
 		 footer = new FooterPage();
 		 learn = new LearnPage();
 		 header =  new HeaderPage();
+		 plp = new PlpPage();
+		 
 		driver.manage().window().maximize();
 		Action.implicitWait(driver, 10);
 	}
